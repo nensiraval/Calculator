@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity
 
     Double n1 = 0.0;
     Double n2 = 0.0;
-//    Double temp = 0.0;
 
 
     void setbutn(Button btn, String n)
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //clear karva
                 if (n.equals("AC"))
                 {
                     textView.setText("");
@@ -96,8 +94,6 @@ public class MainActivity extends AppCompatActivity
                     {
                         n1 = Double.parseDouble(textView.getText().toString());
                         Log.e("===fv", "onClick: before if "+ n1);
-
-                        //3 value sum,multi,div,minus start
                         if (Sign.plus)
                         {
                             Log.e("===fv", "onClick: before process plus "+ n1);
@@ -129,7 +125,6 @@ public class MainActivity extends AppCompatActivity
                              n1 = n1/100;
                             Log.e("===temp", "onClick: after if module "+ temp);
                         }
-                        //3 value sum,multi,div,minus end
                     }
                     catch (NumberFormatException e)
                     {
@@ -139,7 +134,6 @@ public class MainActivity extends AppCompatActivity
                     textView.setText("");
 
 
-                    //value ne true karavva start
                     if (n.equals("+"))
                     {
                         Sign.plus = true;
@@ -157,7 +151,6 @@ public class MainActivity extends AppCompatActivity
                         Sign.div = true;
 
                     }
-                    //value ne true karavva end
                 }
 
                 else if (n.equals("%"))
@@ -169,16 +162,10 @@ public class MainActivity extends AppCompatActivity
                        textView.setText(""+n1);
                    }
                 }
-
-
-                //ans equal kre
                 else if (n.equals("="))
                 {
                     ans();
                 }
-
-
-                //1 time 0 press
                 else if (n.equals("0"))
                 {
                     if (!textView.getText().toString().startsWith("0") || textView.getText().toString().length() > 1)
@@ -186,9 +173,6 @@ public class MainActivity extends AppCompatActivity
                         textView.setText(textView.getText().toString().concat(n));
                     }
                 }
-
-
-                //1 time dot press
                 else if (n.equals("."))
                 {
                     if (!textView.getText().toString().contains("."))
@@ -198,7 +182,6 @@ public class MainActivity extends AppCompatActivity
                             textView.setText(textView.getText().toString().concat("0."));
                         }
 
-                        //value ni pachal je dot lagavvano hoi tyare
                         else
                         {
                             textView.setText(textView.getText().toString().concat("."));
@@ -206,7 +189,6 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
 
-                //value remove
                     else if (n.equals("⌫"))
                     {
                         if (!textView.getText().toString().equals(""))
@@ -215,8 +197,6 @@ public class MainActivity extends AppCompatActivity
                         }
 
                     }
-
-                    //Positive nagative value
                     else if (n.equals("+/-"))
                     {
                         if (textView.getText().toString().contains("-"))
@@ -250,7 +230,6 @@ public class MainActivity extends AppCompatActivity
         textView.setText("");
         Double answer = 0.0;
 
-        //value sum,multi,div,minus mate f1 + f2 only start
         if(Sign.plus)
         {
             answer = n1 + n2;
@@ -267,9 +246,7 @@ public class MainActivity extends AppCompatActivity
         {
             answer = n1 / n2;
         }
- //value sum,multi,div,minus mate f1 + f2 only end
 
-        //boolean according value false
      Sign.plus = false ;
      Sign.minus = false;
      Sign.multi = false;
@@ -281,28 +258,5 @@ public class MainActivity extends AppCompatActivity
 }
 class  Sign
 {
-    //three time value sum, multi, div, minus boolean according value false
     static boolean plus = false, minus = false, multi = false, div = false, module = false;
 }
-
-
-
-
-
-//second option
-//      if(n.equals("")) {
-//              textView.setText("");
-//              } else if (n.equals("+"))
-//              {
-//              n1 = Double.parseDouble(textView.getText().toString());
-//              Log.d("+++", "first value: "+n1);
-//              textView.setText("");
-//              } else if (n.equals("="))
-//              {
-//              n2 = Double.parseDouble(textView.getText().toString());
-//              Double ans = n1 + n2;
-//              Log.d("+++", "second value: "+n2);
-//              Log.d("+++", "ans: "+ans);
-//
-//              textView.setText(ans.toString());
-//              }
